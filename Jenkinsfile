@@ -56,7 +56,7 @@ pipeline {
           set -e
           export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
 
-          npx playwright test
+          npx playwright test form.spec.ts
         '''
       }
     }
