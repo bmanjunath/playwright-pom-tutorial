@@ -36,26 +36,12 @@ pipeline {
       }
     }
 
-    stage('Create .env (if missing)') {
-      steps {
-        sh '''
-          set -e
-          if [ ! -f "env/.env" ] && [ -f "env/.env.example" ]; then
-            cp env/.env.example env/.env
-            echo "Created env/.env from env/.env.example"
-          else
-            echo "env/.env already exists or env/.env.example not found"
-          fi
-        '''
-      }
-    }
-
     stage('Run Tests') {
       steps {
         sh '''
           set -e
           export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
-
+          echo 'executing the playwright test....'
           npx playwright test form.spec.ts
         '''
       }
