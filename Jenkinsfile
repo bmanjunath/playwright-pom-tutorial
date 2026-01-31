@@ -42,7 +42,7 @@ pipeline {
           set -e
           export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
           echo 'executing the playwright test....'
-          npx playwright test form.spec.ts
+          npx playwright test
         '''
       }
     }
